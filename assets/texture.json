@@ -1,0 +1,23 @@
+{
+  "processes": {
+    "texture": {
+      "component": "TextureNode"
+    }
+  },
+  "inports": {},
+  "outports": {
+      "tex": {
+          "process": "texture",
+          "port": "tex"
+      }
+  },
+  "connections": [
+    {
+      "data":"trey1.jpg",
+      "tgt": {
+        "process": "texture",
+        "port": "path"
+      }
+    }
+  ]
+}

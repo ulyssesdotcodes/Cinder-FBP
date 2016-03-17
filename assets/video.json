@@ -1,0 +1,23 @@
+{
+  "processes": {
+    "video": {
+      "component": "VideoNode"
+    }
+  },
+  "inports": {},
+  "outports": {
+      "tex": {
+          "process": "video",
+          "port": "tex"
+      }
+  },
+  "connections": [
+    {
+      "data":"C:\\Users\\Ulysses\\Development\\FBP_2\\assets\\vid.mp4",
+      "tgt": {
+        "process": "video",
+        "port": "path"
+      }
+    }
+  ]
+}

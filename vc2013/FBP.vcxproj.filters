@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -12,6 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{ed75dc9d-ba0a-470a-8f55-bd13b7bc1424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\WMFVideo">
+      <UniqueIdentifier>{b6581d91-7302-4e74-b5cb-e71f8b109933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\WMFVideo\presenter">
+      <UniqueIdentifier>{5c90a7a4-a1ad-4a77-877a-cd80ed5e401e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\WMFVideo\presenter\common">
+      <UniqueIdentifier>{22625fda-f11f-415c-90b9-cb99f480d959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{3dc875e9-470f-4215-80a1-cc75a28f1e7d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\FBPApp.cpp">
@@ -23,9 +39,147 @@
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClCompile Include="..\src\RenderNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TextureNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\VideoNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\ciWMFVideoPlayer.cpp">
+      <Filter>Blocks\WMFVideo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\ciWMFVideoPlayerUtils.cpp">
+      <Filter>Blocks\WMFVideo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresentEngine.cpp">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\Presenter.cpp">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresenterHelpers.cpp">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\scheduler.cpp">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\NodeFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ProcessNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DataNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Graph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\RenderNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TextureNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\VideoNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\ciWMFVideoPlayer.h">
+      <Filter>Blocks\WMFVideo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\ciWMFVideoPlayerUtils.h">
+      <Filter>Blocks\WMFVideo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\EVRPresenter.h">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\EVRPresenterUuid.h">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresentEngine.h">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\Presenter.h">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresenterHelpers.h">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\scheduler.h">
+      <Filter>Blocks\WMFVideo\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\AsyncCB.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\BufferLock.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\ClassFactory.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\common.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\critsec.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\GrowArray.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\linklist.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\logging.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\logmediatype.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\mediatype.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\mfutils.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\PropVar.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\registry.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\TinyMap.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\trace.h">
+      <Filter>Blocks\WMFVideo\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\NodeFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ProcessNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Graph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\crypto.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\server_ws.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -33,5 +187,13 @@
     <ResourceCompile Include="Resources.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\Shaders\video_texture.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\assets\Shaders\video_texture.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

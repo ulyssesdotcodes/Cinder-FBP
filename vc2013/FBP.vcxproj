@@ -1,4 +1,5 @@
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -26,27 +27,27 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -78,7 +79,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;"..\..\Cinder\include"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;"..\..\Cinder\include";..\..\Cinder\blocks\Cinder-WMFVideo\src;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -105,7 +106,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;"..\..\Cinder\include"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\Cinder\include;..\..\Cinder\blocks\Cinder-WMFVideo\src;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -129,7 +130,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;"..\..\Cinder\include"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;"..\..\Cinder\include";..\..\Cinder\blocks\Cinder-WMFVideo\src;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -158,7 +159,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;"..\..\Cinder\include"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;"..\..\Cinder\include";..\..\Cinder\blocks\Cinder-WMFVideo\src;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -187,13 +188,61 @@
   <ItemGroup>
     <ResourceCompile Include="Resources.rc" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup />
   <ItemGroup>
-    <ClCompile Include="..\src\FBPApp.cpp" />
+    <None Include="..\assets\Shaders\video_texture.frag" />
+    <None Include="..\assets\Shaders\video_texture.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\ciWMFVideoPlayer.cpp" />
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\ciWMFVideoPlayerUtils.cpp" />
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresentEngine.cpp" />
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\Presenter.cpp" />
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresenterHelpers.cpp" />
+    <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\scheduler.cpp" />
+    <ClCompile Include="..\src\DataNode.cpp" />
+    <ClCompile Include="..\src\FBPApp.cpp" />
+    <ClCompile Include="..\src\Graph.cpp" />
+    <ClCompile Include="..\src\ProcessNode.cpp" />
+    <ClCompile Include="..\src\NodeFactory.cpp" />
+    <ClCompile Include="..\src\RenderNode.cpp" />
+    <ClCompile Include="..\src\TextureNode.cpp" />
+    <ClCompile Include="..\src\VideoNode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\ciWMFVideoPlayer.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\ciWMFVideoPlayerUtils.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\AsyncCB.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\BufferLock.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\ClassFactory.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\common.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\critsec.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\GrowArray.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\linklist.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\logging.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\logmediatype.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\mediatype.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\mfutils.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\PropVar.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\registry.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\TinyMap.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\common\trace.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\EVRPresenter.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\EVRPresenterUuid.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresentEngine.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\Presenter.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresenterHelpers.h" />
+    <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\scheduler.h" />
     <ClInclude Include="..\include\Resources.h" />
+    <ClInclude Include="..\src\crypto.hpp" />
+    <ClInclude Include="..\src\DataNode.h" />
+    <ClInclude Include="..\src\Graph.h" />
+    <ClInclude Include="..\src\Node.h" />
+    <ClInclude Include="..\src\ProcessNode.h" />
+    <ClInclude Include="..\src\NodeFactory.h" />
+    <ClInclude Include="..\src\RenderNode.h" />
+    <ClInclude Include="..\src\server_ws.hpp" />
+    <ClInclude Include="..\src\TextureNode.h" />
+    <ClInclude Include="..\src\VideoNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
