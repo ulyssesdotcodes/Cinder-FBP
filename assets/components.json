@@ -1,0 +1,50 @@
+[
+  {
+    "protocol": "component",
+    "command": "component",
+    "payload": {
+      "name": "VideoNode",
+      "subgraph": false,
+      "inPorts": [
+        {
+          "id": "path",
+          "type": "string",
+          "required": true,
+          "addressable": false
+        }
+      ],
+      "outPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ]
+    }
+  },
+  {
+    "protocol": "component",
+    "command": "component",
+    "payload": {
+      "name": "TextureNode",
+      "subgraph": false,
+      "inPorts": [
+        {
+          "id": "path",
+          "type": "string",
+          "required": true,
+          "addressable": false
+        }
+      ],
+      "outPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ]
+    }
+  }
+]

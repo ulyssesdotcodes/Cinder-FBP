@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -106,7 +106,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;..\..\Cinder\include;..\..\Cinder\blocks\Cinder-WMFVideo\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Cinder\blocks\websocketpp;..\include;..\..\Cinder\include;..\..\Cinder\include\asio;..\..\Cinder\blocks\Cinder-WMFVideo\src</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -207,6 +207,9 @@
     <ClCompile Include="..\src\RenderNode.cpp" />
     <ClCompile Include="..\src\TextureNode.cpp" />
     <ClCompile Include="..\src\VideoNode.cpp" />
+    <ClCompile Include="..\src\WebSocketClient.cpp" />
+    <ClCompile Include="..\src\WebSocketConnection.cpp" />
+    <ClCompile Include="..\src\WebSocketServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\ciWMFVideoPlayer.h" />
@@ -243,6 +246,9 @@
     <ClInclude Include="..\src\server_ws.hpp" />
     <ClInclude Include="..\src\TextureNode.h" />
     <ClInclude Include="..\src\VideoNode.h" />
+    <ClInclude Include="..\src\WebSocketClient.h" />
+    <ClInclude Include="..\src\WebSocketConnection.h" />
+    <ClInclude Include="..\src\WebSocketServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

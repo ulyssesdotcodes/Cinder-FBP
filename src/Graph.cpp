@@ -5,7 +5,14 @@
 
 using namespace ci;
 
-void Graph::setJson(ci::fs::path path, const NodeFactory& nodeFactory)
+Graph::Graph() { }
+
+Graph::Graph(std::shared_ptr<NodeFactory> nodeFactory)
+{
+	mNodeFactory = nodeFactory;
+}
+
+void Graph::setJson(ci::fs::path path)
 {
 	mProcesses.clear();
 
@@ -18,7 +25,7 @@ void Graph::setJson(ci::fs::path path, const NodeFactory& nodeFactory)
 		JsonTree process = processes[i];
 		std::string name = process.getKey();
 		std::string type = process.getValueForKey("component");
-		mProcesses[name] = nodeFactory.createInstance(type, name);
+		mProcesses[name] = mNodeFactory->createInstance(type, name);
 	}
 
 
@@ -30,7 +37,7 @@ void Graph::setJson(ci::fs::path path, const NodeFactory& nodeFactory)
 			// Deal with a data child
 			JsonTree tgt = connections[i]["tgt"];
 
-			InputNode inputNode = { "data", nodeFactory.createDataNode(connections[i].getValueForKey("data")) };
+			InputNode inputNode = { "data", mNodeFactory->createDataNode(connections[i].getValueForKey("data")) };
 
 			mProcesses[tgt.getValueForKey("process")]->setInput(tgt.getValueForKey("port"), inputNode);
 			continue;
@@ -51,7 +58,41 @@ void Graph::setJson(ci::fs::path path, const NodeFactory& nodeFactory)
 	}
 }
 
+void Graph::addNode(JsonTree payload)
+{
+	std::string name = payload.getValueForKey("id");
+	std::string type = payload.getValueForKey("component");
+	mProcesses[name] = mNodeFactory->createInstance(type, name);
+}
+
+void Graph::addData(JsonTree payload)
+{
+	JsonTree tgt = payload["tgt"];
+
+	InputNode inputNode = { "data", mNodeFactory->createDataNode(payload.getValueForKey("src.data")) };
+
+	mProcesses[tgt.getValueForKey("node")]->setInput(tgt.getValueForKey("port"), inputNode);
+}
+
+void Graph::addEdge(JsonTree payload)
+{
+		JsonTree src = payload["src"];
+		InputNode srcNode = { src.getValueForKey("port"), mProcesses[src.getValueForKey("node")] };
+
+		JsonTree tgt = payload["tgt"];
+		mProcesses[tgt.getValueForKey("node")]->setInput(tgt.getValueForKey("port"), srcNode);
+}
+
+void Graph::addOutput(ci::JsonTree payload)
+{
+	InputNode srcNode = { payload.getValueForKey("port"), mProcesses[payload.getValueForKey("node")] };
+	mOutputs[payload.getValueForKey("public")] = srcNode;
+}
+
 boost::any Graph::getData(std::string id, int frame)
 {
+	if (mOutputs.find(id) == mOutputs.end()) {
+		return boost::any();
+	}
 	return mOutputs[id].node->getData(mOutputs[id].id, frame);
 }

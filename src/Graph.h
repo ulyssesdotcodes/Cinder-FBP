@@ -12,7 +12,15 @@ private:
 	std::map<std::string, InputNode> mOutputs;
 
 public:
-	void setJson(ci::fs::path path, const NodeFactory& nodeFactory);
+	Graph();
+	Graph(std::shared_ptr<NodeFactory> nodeFactory);
+	void setJson(ci::fs::path path);
+	void addNode(ci::JsonTree payload);
+	void addData(ci::JsonTree payload);
+	void addEdge(ci::JsonTree payload);
+	void addOutput(ci::JsonTree payload);
+
+	std::shared_ptr<NodeFactory> mNodeFactory;
 
 	boost::any getData(std::string id, int frame);
 };

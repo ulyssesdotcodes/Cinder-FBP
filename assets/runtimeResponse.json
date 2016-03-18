@@ -1,0 +1,11 @@
+{
+  "protocol": "runtime",
+  "command": "runtime",
+  "payload": {
+    "type": "Cinder",
+    "version": 0,
+    "capabilities": ["protocol:runtime", "protocol:component", "protocol:graph"],
+    "allCapabilities": ["protocol:runtime", "protocol:component", "protocol:graph"],
+    "label": "Cinder"
+  }
+}
