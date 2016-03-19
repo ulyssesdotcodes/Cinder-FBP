@@ -52,7 +52,7 @@ void ScaleByNode::update(int frame)
 
 	gl::drawSolidRect(mFbo->getBounds());
 
-	gl::pushMatrices();
+	gl::popMatrices();
 
 	setData("tex", mFbo->getColorTexture());
 }

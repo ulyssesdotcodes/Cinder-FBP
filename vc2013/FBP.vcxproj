@@ -201,6 +201,7 @@
     <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\Presenter.cpp" />
     <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresenterHelpers.cpp" />
     <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\scheduler.cpp" />
+    <ClCompile Include="..\src\AudioNode.cpp" />
     <ClCompile Include="..\src\DataNode.cpp" />
     <ClCompile Include="..\src\FBPApp.cpp" />
     <ClCompile Include="..\src\FlattenNode.cpp" />
@@ -240,10 +241,11 @@
     <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresenterHelpers.h" />
     <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\scheduler.h" />
     <ClInclude Include="..\include\Resources.h" />
+    <ClInclude Include="..\src\AudioNode.h" />
     <ClInclude Include="..\src\DataNode.h" />
     <ClInclude Include="..\src\FlattenNode.h" />
     <ClInclude Include="..\src\Graph.h" />
-    <ClInclude Include="..\src\Node.h" />
+    <ClInclude Include="..\src\FBPNode.h" />
     <ClInclude Include="..\src\ProcessNode.h" />
     <ClInclude Include="..\src\NodeFactory.h" />
     <ClInclude Include="..\src\RenderNode.h" />

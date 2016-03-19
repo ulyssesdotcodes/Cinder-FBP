@@ -3,6 +3,54 @@
     "protocol": "component",
     "command": "component",
     "payload": {
+      "name": "AudioNode",
+      "subgraph": false,
+      "inPorts": [
+        {
+          "id": "null",
+          "type": "null",
+          "required": false,
+          "addressable": false
+        }
+      ],
+      "outPorts": [
+        {
+          "id": "accumulatedVolume",
+          "type": "float",
+          "required": false,
+          "addressable": false
+        },
+        {
+          "id": "audioTex",
+          "type": "texture",
+          "required": false,
+          "addressable": false
+        },
+        {
+          "id": "buffer",
+          "type": "float[]",
+          "required": false,
+          "addressable": false
+        },
+        {
+          "id": "fft",
+          "type": "float[]",
+          "required": false,
+          "addressable": false
+        },
+        {
+          "id": "volume",
+          "type": "float",
+          "required": false,
+          "addressable": false
+        }
+      ]
+    }
+  },
+  {
+    "protocol": "component",
+    "command": "component",
+    "payload": {
       "name": "FlattenNode",
       "subgraph": false,
       "inPorts": [

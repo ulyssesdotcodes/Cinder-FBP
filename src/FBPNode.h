@@ -2,7 +2,7 @@
 
 #include <boost/any.hpp>
 
-class Node {
+class FBPNode {
 public:
 	virtual boost::any getData(std::string id, int frame) = 0;
 };

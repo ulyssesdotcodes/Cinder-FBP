@@ -97,45 +97,25 @@ void FBPApp::draw()
 		return;
 	}
 
+	gl::ScopedViewport vp(ivec2(0), mCurrentTex->getSize());
+	gl::pushMatrices();
+	gl::setMatricesWindow(mCurrentTex->getSize());
+
+	ci::gl::clear(ci::Color(0, 0, 0));
+
+	gl::drawSolidRect(mCurrentTex->getBounds());
+
+	gl::pushMatrices();
+
 	gl::draw(mCurrentTex);
 
-	mParams->draw();
+	gl::popMatrices();
 }
 
 void FBPApp::onMessage(std::string msg)
 {
-	app::console() << "Received message: " << msg << std::endl;
 	JsonTree json = JsonTree(msg); 
-	std::string command = json.getValueForKey("command");
-	if (command.compare("getruntime") == 0) {
-		JsonTree resp = JsonTree(loadAsset("runtimeResponse.json"));
-		mServer.write(resp.serialize());
-	}
-	else if (command.compare("list") == 0) {
-
-		JsonTree components = JsonTree(loadAsset("components.json"));
-		for (int i = 0; i < components.getNumChildren(); ++i) {
-			mServer.write(components[i].serialize());
-		}
-
-		JsonTree componentsReady = JsonTree::makeObject();
-		componentsReady.addChild(JsonTree("protocol", "component"));
-		componentsReady.addChild(JsonTree("command", "componentsready"));
-
-		mServer.write(componentsReady.serialize());
-	}
-	else if (command.compare("addnode") == 0) {
-		mGraph.addNode(json["payload"]);
-	}
-	else if (command.compare("addinitial") == 0) {
-		mGraph.addData(json["payload"]);
-	}
-	else if (command.compare("addedge") == 0) {
-		mGraph.addEdge(json["payload"]);
-	}
-	else if (command.compare("addoutport") == 0) {
-		mGraph.addOutput(json["payload"]);
-	}
+	mGraph.handleMessage(JsonTree(msg), bind(&WebSocketServer::write, &mServer, std::placeholders::_1));
 }
 
 CINDER_APP( FBPApp, RendererGl )

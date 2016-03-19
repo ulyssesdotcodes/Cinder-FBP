@@ -4,17 +4,17 @@
 #include <map>
 #include <memory>
 #include <vector>
-#include "Node.h"
+#include "FBPNode.h"
 
-struct InputNode {
+struct FBPInputNode {
 	std::string id;
-	std::shared_ptr<Node> node;
+	std::shared_ptr<FBPNode> node;
 };
 
-class ProcessNode : public Node{
+class ProcessNode : public FBPNode{
 private:
 	std::map<std::string, boost::any> mData;
-	std::map<std::string, InputNode> mInputs;
+	std::map<std::string, FBPInputNode> mInputs;
 	int mLastFrame;
 	std::string mName;
 
@@ -28,6 +28,6 @@ protected:
 
 public:
 	ProcessNode(std::string name, std::vector<std::string> inputIds);
-	void setInput(std::string inputId, InputNode node);
+	void setInput(std::string inputId, FBPInputNode node);
 	boost::any getData(std::string id, int frame);
 };

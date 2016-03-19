@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Node.h"
+#include "FBPNode.h"
 
-class DataNode : public Node {
+class DataNode : public FBPNode {
 private:
 	boost::any mData;
 

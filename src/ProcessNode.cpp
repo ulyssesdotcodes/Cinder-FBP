@@ -15,7 +15,7 @@ boost::any ProcessNode::getInputData(std::string id, int frame)
 		return boost::any();
 	}
 
-	InputNode in = mInputs[id];
+	FBPInputNode in = mInputs[id];
 
 	return in.node->getData(in.id, frame);
 }
@@ -35,14 +35,14 @@ float ProcessNode::getInputDataAsFloat(std::string id, int frame)
 	return out;
 }
 
-void ProcessNode::setInput(std::string id, InputNode inputNode) 
+void ProcessNode::setInput(std::string id, FBPInputNode FBPInputNode) 
 {
 	if (std::find(mInputIds.begin(), mInputIds.end(), id) == mInputIds.end()) {
 		ci::app::console() << "You tried to set input " << id << " on " << mName << " where there isn't such an input.";
 		throw;
 	}
 
-	mInputs[id] = inputNode;
+	mInputs[id] = FBPInputNode;
 }
 
 boost::any ProcessNode::getData(std::string id, int frame)
