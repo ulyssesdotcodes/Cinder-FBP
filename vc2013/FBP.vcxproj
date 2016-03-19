@@ -189,6 +189,8 @@
     <ResourceCompile Include="Resources.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\assets\Shaders\flatten.frag" />
+    <None Include="..\assets\Shaders\scale_by.frag" />
     <None Include="..\assets\Shaders\video_texture.frag" />
     <None Include="..\assets\Shaders\video_texture.vert" />
   </ItemGroup>
@@ -201,10 +203,12 @@
     <ClCompile Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\scheduler.cpp" />
     <ClCompile Include="..\src\DataNode.cpp" />
     <ClCompile Include="..\src\FBPApp.cpp" />
+    <ClCompile Include="..\src\FlattenNode.cpp" />
     <ClCompile Include="..\src\Graph.cpp" />
     <ClCompile Include="..\src\ProcessNode.cpp" />
     <ClCompile Include="..\src\NodeFactory.cpp" />
     <ClCompile Include="..\src\RenderNode.cpp" />
+    <ClCompile Include="..\src\ScaleByNode.cpp" />
     <ClCompile Include="..\src\TextureNode.cpp" />
     <ClCompile Include="..\src\VideoNode.cpp" />
     <ClCompile Include="..\src\WebSocketClient.cpp" />
@@ -236,8 +240,8 @@
     <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\PresenterHelpers.h" />
     <ClInclude Include="..\..\Cinder\blocks\Cinder-WMFVideo\src\presenter\scheduler.h" />
     <ClInclude Include="..\include\Resources.h" />
-    <ClInclude Include="..\src\crypto.hpp" />
     <ClInclude Include="..\src\DataNode.h" />
+    <ClInclude Include="..\src\FlattenNode.h" />
     <ClInclude Include="..\src\Graph.h" />
     <ClInclude Include="..\src\Node.h" />
     <ClInclude Include="..\src\ProcessNode.h" />
@@ -245,6 +249,7 @@
     <ClInclude Include="..\src\RenderNode.h" />
     <ClInclude Include="..\src\server_ws.hpp" />
     <ClInclude Include="..\src\TextureNode.h" />
+    <ClInclude Include="..\src\ScaleByNode.h" />
     <ClInclude Include="..\src\VideoNode.h" />
     <ClInclude Include="..\src\WebSocketClient.h" />
     <ClInclude Include="..\src\WebSocketConnection.h" />

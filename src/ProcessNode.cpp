@@ -11,9 +11,28 @@ void ProcessNode::setData(std::string id, boost::any data)
 
 boost::any ProcessNode::getInputData(std::string id, int frame)
 {
+	if (mInputs.find(id) == mInputs.end()) {
+		return boost::any();
+	}
+
 	InputNode in = mInputs[id];
 
 	return in.node->getData(in.id, frame);
+}
+
+float ProcessNode::getInputDataAsFloat(std::string id, int frame)
+{
+	boost::any data = getInputData(id, frame);
+	float out;
+
+	try {
+		out = boost::any_cast<float>(data);
+	}
+	catch (boost::bad_any_cast e) {
+		out = std::stof(boost::any_cast<std::string>(data));
+	}
+
+	return out;
 }
 
 void ProcessNode::setInput(std::string id, InputNode inputNode) 
@@ -31,6 +50,10 @@ boost::any ProcessNode::getData(std::string id, int frame)
 	if (frame > mLastFrame) {
 		update(frame);
 		mLastFrame = frame;
+	}
+
+	if (mData.find(id) == mData.end()) {
+		return boost::any();
 	}
 
 	return mData[id];

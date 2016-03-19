@@ -23,6 +23,7 @@ protected:
 	std::vector<std::string> mInputIds;
 	void setData(std::string id, boost::any data);
 	boost::any getInputData(std::string id, int frame);
+	float getInputDataAsFloat(std::string id, int frame);
 	virtual void update(int frame) = 0;
 
 public:

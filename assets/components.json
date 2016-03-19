@@ -3,7 +3,79 @@
     "protocol": "component",
     "command": "component",
     "payload": {
-      "name": "VideoNode",
+      "name": "FlattenNode",
+      "subgraph": false,
+      "inPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ],
+      "outPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ]
+    }
+  },
+  {
+    "protocol": "component",
+    "command": "component",
+    "payload": {
+      "name": "ScaleByNode",
+      "subgraph": false,
+      "inPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        },
+        {
+          "id": "scalex",
+          "type": "float",
+          "required": false,
+          "addressable": false
+        },
+        {
+          "id": "scaley",
+          "type": "float",
+          "required": false,
+          "addressable": false
+        },
+        {
+          "id": "pivotx",
+          "type": "float",
+          "required": false,
+          "addressable": false
+        },
+        {
+          "id": "pivoty",
+          "type": "float",
+          "required": false,
+          "addressable": false
+        }
+      ],
+      "outPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ]
+    }
+  },
+  {
+    "protocol": "component",
+    "command": "component",
+    "payload": {
+      "name": "TextureNode",
       "subgraph": false,
       "inPorts": [
         {
@@ -27,7 +99,7 @@
     "protocol": "component",
     "command": "component",
     "payload": {
-      "name": "TextureNode",
+      "name": "VideoNode",
       "subgraph": false,
       "inPorts": [
         {
