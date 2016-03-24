@@ -25,6 +25,7 @@ void main()
 {
 	vec2 pos = gl_FragCoord.xy / i_resolution.xy;
 	vec3 hsv = rgb2hsv(texture2D(tex, pos).rgb);
-	hsv.y = 1.0;
+	hsv.y = ceil(hsv.y - 0.01);
+	hsv.z = ceil(hsv.z - 0.01);
 	fragColor = vec4(hsv2rgb(hsv), 1);
 }

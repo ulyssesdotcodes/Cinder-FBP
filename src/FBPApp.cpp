@@ -8,7 +8,7 @@
 #include "Graph.h"
 #include "NodeFactory.h"
 #include "RenderNode.h"
-#include "TextureNode.h"
+#include "ImageNode.h"
 #include "VideoNode.h"
 #include "WebSocketServer.h"
 

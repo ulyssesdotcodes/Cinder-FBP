@@ -42,9 +42,6 @@
     <ClCompile Include="..\src\RenderNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\TextureNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\VideoNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -96,15 +93,30 @@
     <ClCompile Include="..\src\AudioNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\DelayNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FadeNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ImageNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TextureNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SplitSpectrumNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DotsNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\RenderNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\TextureNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\VideoNode.h">
@@ -191,9 +203,6 @@
     <ClInclude Include="..\src\Graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\server_ws.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\WebSocketClient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -215,6 +224,24 @@
     <ClInclude Include="..\src\FBPNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\DelayNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FadeNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ImageNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TextureNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SplitSpectrumNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DotsNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc">
@@ -232,6 +259,9 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\assets\Shaders\scale_by.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\dots.frag">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

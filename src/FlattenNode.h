@@ -2,14 +2,12 @@
 
 #include "cinder/app/App.h"
 #include "cinder/gl/gl.h"
-#include "ProcessNode.h"
+#include "TextureNode.h"
 
 
-class FlattenNode : public ProcessNode {
+class FlattenNode : public TextureNode {
 private:
-	ci::gl::FboRef mFbo;
 	ci::gl::GlslProgRef mShader;
-	int mWidth, mHeight;
 protected:
 	void update(int frame) override;
 public:

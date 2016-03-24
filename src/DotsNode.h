@@ -1,16 +1,18 @@
 #pragma once
 
-#include "cinder/app/App.h"
-#include "cinder/gl/gl.h"
 #include "TextureNode.h"
 
-class ScaleByNode : public TextureNode {
+#include "cinder/app/App.h"
+#include "cinder/gl/gl.h"
+
+class DotsNode : public ProcessNode {
 private:
 	ci::gl::GlslProgRef mShader;
 	ci::vec2 mScale, mPivot;
+	ci::gl::FboRef mFbo;
 
 public:
-	ScaleByNode(std::string name);
+	DotsNode(std::string name);
 
 protected:
 	void update(int frame) override;

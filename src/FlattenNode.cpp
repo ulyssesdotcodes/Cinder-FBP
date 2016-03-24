@@ -2,7 +2,7 @@
 
 using namespace ci;
 
-FlattenNode::FlattenNode(std::string name) : ProcessNode(name, { "tex" })
+FlattenNode::FlattenNode(std::string name) : TextureNode(name, { "tex" })
 {
 
 	mShader = gl::GlslProg::create(app::loadAsset("shaders/passthru.vert"), app::loadAsset("shaders/flatten.frag"));
@@ -10,40 +10,21 @@ FlattenNode::FlattenNode(std::string name) : ProcessNode(name, { "tex" })
 
 void FlattenNode::update(int frame)
 {
-	boost::any texInput = getInputData("tex", frame);
-	if (texInput.empty()) {
-		setData("tex", texInput);
+	gl::Texture2dRef tex = getInputTexture(frame, getInputData("tex", frame));
+	if (tex == nullptr) {
+		setData("tex", boost::any());
 		return;
 	}
+	
 
-	gl::Texture2dRef tex = boost::any_cast<gl::Texture2dRef>(texInput);
-
-	if (tex->getWidth() != mWidth || tex->getHeight() != mHeight) {
-		mWidth = tex->getWidth();
-		mHeight = tex->getHeight();
-
-		mFbo = gl::Fbo::create(mWidth, mHeight);
-
-		mShader->uniform("i_resolution", vec2(mWidth, mHeight));
-	}
+	mShader->uniform("i_resolution", getSize());
 
 	gl::ScopedTextureBind texBind(tex, 0);
-
 	mShader->uniform("tex", 0);
 
-	ci::gl::ScopedFramebuffer fb(mFbo);
+	ci::gl::ScopedGlslProg glsl(mShader);
 
-	gl::ScopedViewport vp(ivec2(0), mFbo->getSize());
-	gl::pushMatrices();
-	gl::setMatricesWindow(mFbo->getSize());
+	draw();
 
-	gl::ScopedGlslProg glsl(mShader);
-
-	ci::gl::clear(ci::Color(0, 0, 0));
-
-	gl::drawSolidRect(mFbo->getBounds());
-
-	gl::popMatrices();
-
-	setData("tex", mFbo->getColorTexture());
+	setData("tex", getTexture());
 }
