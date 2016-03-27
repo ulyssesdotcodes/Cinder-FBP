@@ -15,12 +15,12 @@ void ScaleByNode::update(int frame)
 		return;
 	}
 
-	float scaleX = getInputData("scalex", frame).empty() ? 1 : getInputDataAsFloat("scalex", frame);
-	float scaleY = getInputData("scaley", frame).empty() ? 1 : getInputDataAsFloat("scaley", frame);
+	float scaleX = getInputDataAsFloat("scalex", 1, frame);
+	float scaleY = getInputDataAsFloat("scaley", 1, frame);
 	vec2 scale = vec2(scaleX, scaleY);
 
-	float pivotX = getInputData("pivotx", frame).empty() ? 0.5 : getInputDataAsFloat("pivotx", frame);
-	float pivotY = getInputData("pivoty", frame).empty() ? 0.5 : getInputDataAsFloat("pivoty", frame);
+	float pivotX = getInputDataAsFloat("pivotx", 0.5, frame);
+	float pivotY = getInputDataAsFloat("pivoty", 0.5, frame);
 	vec2 pivot = vec2(pivotX, pivotY);
 
 	mShader->uniform("i_resolution", getSize());

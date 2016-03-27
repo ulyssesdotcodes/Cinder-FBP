@@ -141,3 +141,11 @@ boost::any Graph::getData(std::string id, int frame)
 	}
 	return mOutputs[id].node->getData(mOutputs[id].id, frame);
 }
+
+boost::any Graph::getData(std::string id)
+{
+	if (mOutputs.find(id) == mOutputs.end()) {
+		return boost::any();
+	}
+	return mOutputs[id].node->getData(mOutputs[id].id);
+}

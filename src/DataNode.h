@@ -9,4 +9,5 @@ private:
 public:
 	DataNode(boost::any data);
 	boost::any getData(std::string id, int frame);
+	boost::any getData(std::string id);
 };

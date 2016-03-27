@@ -1,9 +1,9 @@
 #pragma once
 
-#include "ProcessNode.h"
+#include "TextureNode.h"
 #include "cinder/gl/gl.h"
 
-class FadeNode : public ProcessNode {
+class FadeNode : public TextureNode {
 public:
 	FadeNode(std::string name);
 protected:

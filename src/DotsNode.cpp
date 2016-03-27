@@ -17,7 +17,7 @@ void DotsNode::update(int frame)
 	}
 
 	mShader->uniform("i_time", (float) app::getElapsedSeconds());
-	mShader->uniform("i_accumulatedVolume", boost::any_cast<float>(getInputDataAsFloat("accumulatedVolume", frame)));
+	mShader->uniform("i_accumulatedVolume", getInputDataAsFloat("accumulatedVolume", 0, frame));
 	std::vector<float> splits = boost::any_cast<std::vector<float>>(getInputData("splits", frame));
 	mShader->uniform("i_splits", splits.data(), splits.size());
 

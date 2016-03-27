@@ -2,6 +2,7 @@
 
 TextureNode::TextureNode(std::string name, std::vector<std::string> inputIds) : ProcessNode(name, inputIds)
 {
+	mFbo = ci::gl::Fbo::create(ci::app::getWindowWidth(), ci::app::getWindowHeight());
 }
 
 ci::gl::Texture2dRef TextureNode::getInputTexture(int frame, boost::any texInput)

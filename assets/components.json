@@ -51,6 +51,30 @@
     "protocol": "component",
     "command": "component",
     "payload": {
+      "name": "DelayNode",
+      "subgraph": false,
+      "inPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ],
+      "outPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ]
+    }
+  },
+  {
+    "protocol": "component",
+    "command": "component",
+    "payload": {
       "name": "DotsNode",
       "subgraph": false,
       "inPorts": [
@@ -86,6 +110,60 @@
       "inPorts": [
         {
           "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ],
+      "outPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ]
+    }
+  },
+  {
+    "protocol": "component",
+    "command": "component",
+    "payload": {
+      "name": "ImageNode",
+      "subgraph": false,
+      "inPorts": [
+        {
+          "id": "path",
+          "type": "string",
+          "required": true,
+          "addressable": false
+        }
+      ],
+      "outPorts": [
+        {
+          "id": "tex",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        }
+      ]
+    }
+  },
+  {
+    "protocol": "component",
+    "command": "component",
+    "payload": {
+      "name": "OverlayNode",
+      "subgraph": false,
+      "inPorts": [
+        {
+          "id": "tex1",
+          "type": "texture",
+          "required": true,
+          "addressable": false
+        },
+        {
+          "id": "tex2",
           "type": "texture",
           "required": true,
           "addressable": false
@@ -153,30 +231,6 @@
     "protocol": "component",
     "command": "component",
     "payload": {
-      "name": "ImageNode",
-      "subgraph": false,
-      "inPorts": [
-        {
-          "id": "path",
-          "type": "string",
-          "required": true,
-          "addressable": false
-        }
-      ],
-      "outPorts": [
-        {
-          "id": "tex",
-          "type": "texture",
-          "required": true,
-          "addressable": false
-        }
-      ]
-    }
-  },
-  {
-    "protocol": "component",
-    "command": "component",
-    "payload": {
       "name": "SplitSpectrumNode",
       "subgraph": false,
       "inPorts": [
@@ -184,6 +238,24 @@
           "id": "spectrum",
           "type": "float[]",
           "required": true,
+          "addressable": false
+        },
+        {
+          "id": "damping",
+          "type": "float",
+          "required": false,
+          "addressable": false
+        },
+        {
+          "id": "sectionStart",
+          "type": "float",
+          "required": false,
+          "addressable": false
+        },
+        {
+          "id": "sectionPercent",
+          "type": "float",
+          "required": false,
           "addressable": false
         },
         {

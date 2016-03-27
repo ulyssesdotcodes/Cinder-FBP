@@ -191,6 +191,7 @@
   <ItemGroup>
     <None Include="..\assets\shaders\dots.frag" />
     <None Include="..\assets\Shaders\flatten.frag" />
+    <None Include="..\assets\shaders\overlay.frag" />
     <None Include="..\assets\Shaders\scale_by.frag" />
     <None Include="..\assets\Shaders\video_texture.frag" />
     <None Include="..\assets\Shaders\video_texture.vert" />
@@ -210,6 +211,7 @@
     <ClCompile Include="..\src\FBPApp.cpp" />
     <ClCompile Include="..\src\FlattenNode.cpp" />
     <ClCompile Include="..\src\Graph.cpp" />
+    <ClCompile Include="..\src\OverlayNode.cpp" />
     <ClCompile Include="..\src\ProcessNode.cpp" />
     <ClCompile Include="..\src\NodeFactory.cpp" />
     <ClCompile Include="..\src\RenderNode.cpp" />
@@ -255,6 +257,7 @@
     <ClInclude Include="..\src\FlattenNode.h" />
     <ClInclude Include="..\src\Graph.h" />
     <ClInclude Include="..\src\FBPNode.h" />
+    <ClInclude Include="..\src\OverlayNode.h" />
     <ClInclude Include="..\src\ProcessNode.h" />
     <ClInclude Include="..\src\NodeFactory.h" />
     <ClInclude Include="..\src\RenderNode.h" />

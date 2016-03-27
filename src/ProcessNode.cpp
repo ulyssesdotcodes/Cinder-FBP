@@ -20,11 +20,26 @@ boost::any ProcessNode::getInputData(std::string id, int frame)
 	return in.node->getData(in.id, frame);
 }
 
-float ProcessNode::getInputDataAsFloat(std::string id, int frame)
+boost::any ProcessNode::getInputData(std::string id)
+{
+	if (mInputs.find(id) == mInputs.end()) {
+		return boost::any();
+	}
+
+	FBPInputNode in = mInputs[id];
+
+	return in.node->getData(in.id);
+}
+
+float ProcessNode::getInputDataAsFloat(std::string id, float default, int frame)
 {
 	boost::any data = getInputData(id, frame);
-	float out;
 
+	if (data.empty()) {
+		return default;
+	}
+
+	float out;
 	try {
 		out = boost::any_cast<float>(data);
 	}
@@ -52,6 +67,15 @@ boost::any ProcessNode::getData(std::string id, int frame)
 		mLastFrame = frame;
 	}
 
+	if (mData.find(id) == mData.end()) {
+		return boost::any();
+	}
+
+	return mData[id];
+}
+
+boost::any ProcessNode::getData(std::string id)
+{
 	if (mData.find(id) == mData.end()) {
 		return boost::any();
 	}

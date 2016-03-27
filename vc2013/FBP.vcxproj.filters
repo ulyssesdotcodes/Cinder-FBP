@@ -111,6 +111,9 @@
     <ClCompile Include="..\src\DotsNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\OverlayNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
@@ -242,6 +245,9 @@
     <ClInclude Include="..\src\DotsNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\OverlayNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc">
@@ -262,6 +268,9 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\assets\shaders\dots.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\overlay.frag">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

@@ -8,4 +8,6 @@ public:
 	DelayNode(std::string name);
 protected:
 	void update(int frame);
+private:
+	ci::gl::GlslProgRef mShader;
 };

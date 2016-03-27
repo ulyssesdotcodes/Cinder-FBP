@@ -24,4 +24,5 @@ public:
 	std::shared_ptr<NodeFactory> mNodeFactory;
 
 	boost::any getData(std::string id, int frame);
+	boost::any getData(std::string id);
 };
